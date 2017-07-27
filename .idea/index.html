@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geekdom Coding Challenge</title>
+</head>
+<body>
+<h2>Challenge 1</h2>
+First Number: <input id="firstNumberInput" type="number">
+
+<br>
+Second Number: <input id="secondNumberInput" type="number">
+<br>
+<button id="addButton">Add</button>
+<button id="subtractButton">Subtract</button>
+<br>
+The Result is: <span id="resultInputField" type="number"></span>
+<hr>
+<h2>Challenge 2</h2>
+<span id="resultChallenge2" type="number"></span>
+<hr>
+<h2>Challenge 3</h2>
+Skipping for now
+<br>
+<hr>
+<h2>Challenge 4</h2>
+<span id="resultChallenge4" type="number"></span>
+
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script>
+    "use strict";
+
+
+    (function () {
+
+        //    Challenge 1
+        $('#addButton').click(addNumbers);
+        $('#subtractButton').click(subtractNumbers);
+
+        function addNumbers() {
+            var grabFirstNumber = parseInt($('#firstNumberInput').val())
+            var grabSecondNumber = parseInt($('#secondNumberInput').val())
+            var result = Number(grabFirstNumber + grabSecondNumber);
+            $('#resultInputField').html(result);
+        }
+
+        function subtractNumbers() {
+            var grabFirstNumber = parseInt($('#firstNumberInput').val())
+            var grabSecondNumber = parseInt($('#secondNumberInput').val())
+            var result = Number(grabFirstNumber - grabSecondNumber);
+            $('#resultInputField').html(result);
+        }
+
+//        Challenge 2
+
+        $('#displaySecondChallenge').click(secondChallengeExecute())
+
+        function secondChallengeExecute() {
+            var challengeTwoArray = [-65, 5, -13, -23, -8, -1],
+                biggest = -Infinity,
+                next_biggest = -Infinity;
+
+            for (var i = 0, n = challengeTwoArray.length; i < n; ++i) {
+                var nr = +challengeTwoArray[i];
+
+                if (nr > biggest) {
+                    next_biggest = biggest;
+                    biggest = nr;
+                } else if (nr < biggest && nr > next_biggest) {
+                    next_biggest = nr;
+                }
+            }
+            $('#resultChallenge2').html("Answer: " + biggest + " " + next_biggest);
+        }
+
+//        Challenge 3 (Skipped)
+
+
+//        Challenge 4
+
+        $('#displayFourthChallenge').click(fourthChallengeExecute())
+
+        function fourthChallengeExecute() {
+
+            var stringExample = ["My", "Phone"]
+            // "My phone battery is always dead";
+            var lengthOfStringExample = stringExample.length;
+
+            var splittingTheString = stringExample.split(' ');
+            console.log(stringExample);
+            console.log(splittingTheString);
+            $('#resultChallenge4').html("Answer: " + splittingTheString);
+
+
+        }
+
+
+    })();
+
+</script>
+</body>
+</html>
